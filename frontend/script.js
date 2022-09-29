@@ -82,10 +82,10 @@ const monthComponent = function (nth, name, days) {
   //+=: a daysHtml-t dayComponent értékkel fogja minden ciklusban módosítani
   //a dayComponent-et i-szer fogja meghívni
   return `
-        <div id="${nth}" class="${name}">
+        <section id="${nth}" class="${name}">
             <h2>${name}</h2>
-            ${daysHtml}
-        </div>
+            <div class = "days"> ${daysHtml} </div>
+        </section>
   `;
 };
 // ${}: kilép a multiline string-ből, vissza a js-be
@@ -104,10 +104,21 @@ rootElement.insertAdjacentHTML("beforeend", "<button>Add month</button>");
 
 const buttonElement = rootElement.querySelector("button");
 
-let monthIndex = 0;
+/* let monthIndex = 0; */
 
 buttonElement.addEventListener("click", function () {
-  if (monthIndex < 12) {
+  for (let monthIndex = 0; monthIndex < 12; monthIndex++) {
+    rootElement.insertAdjacentHTML(
+      "beforeend",
+      monthComponent(
+        year[monthIndex].nth,
+        year[monthIndex].month,
+        year[monthIndex].days
+      )
+    );
+  }
+});
+/*   if (monthIndex < 12) {
     rootElement.insertAdjacentHTML(
       "beforeend",
       monthComponent(
@@ -121,7 +132,7 @@ buttonElement.addEventListener("click", function () {
   } else {
     buttonElement.setAttribute("disabled", "");
   }
-});
+}); */
 
 /* Magyarázat: 
     eseményfigyelő: mire figyeljen, mit csináljon
