@@ -122,3 +122,13 @@ buttonElement.addEventListener("click", function () {
     buttonElement.setAttribute("disabled", "");
   }
 });
+
+/* Magyarázat: 
+    eseményfigyelő: mire figyeljen, mit csináljon
+      function: nincs argument, vagyis azonnal fut
+        ha a monthindex kisebb, mint 12, addig fut (monthIndex:0-11)
+          a root ID-jú div-be belehelyezzük a következő HTML képletet
+            a a képlet helye: a divben, de a végén
+            meghívjuk benne a monthComponent 3 elemét, amelyek száma a year monthIndex-edik nth-ja, hónapja, napja
+            monthIndex eggyel nő
+            ha vége, else: kikapcsolja a gombot */
