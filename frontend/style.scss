@@ -1,15 +1,62 @@
 #root {
-    color: rgb(196, 221, 54);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center;
+    align-items: flex-start;
 
-    .January{
-        color: brown;
+    section {
+        width: 100%;
+        max-width: 400px;
+        
+        
+        .days {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 5%;
+            align-items: flex-start;
 
-        &#1{
-            background-color: black;
-        }
-        //a & lényegében 1 selectorrá fűzi össze a felette lévővel
-        .day{
-            color: blue;
+
+            .day {
+                width: 10%;
+                border: 1px solid rgba(0, 0, 0, 0.2);
+                text-align: center;
+                box-sizing: border-box;
+                padding: 5px 0;
+                margin-bottom: 10px;
+                display: block;
+
+
+            }
+            
         }
     }
+
+    button {
+        width: 120px;
+        height: 40px;
+        position: fixed;
+        top: 0;
+        right: 0;
+    }
+
+}
+
+@media only screen and (max-width: 800px) {
+    .day {
+        color: red;
+    }
+}
+//létrehoztunk egy töréspontot max 800px-nél: ott fog a css tulajdonság megtörténni
+
+@media only screen and (max-width: 700px) {
+    .day {
+        font-size: 20px;
+    }
+}
+
+.hidden {
+    display: none;
 }
