@@ -25,6 +25,7 @@
   padding: 5px 0;
   margin-bottom: 10px;
   display: block;
+  transition: all 0.5s ease;
 }
 #root button {
   width: 120px;
@@ -45,5 +46,11 @@
   }
 }
 .hidden {
-  display: none;
+  display: none !important;
+}
+
+.clicked {
+  transform: rotate(180deg);
+  transition: all 0.5s ease;
+  background-color: salmon;
 }/*# sourceMappingURL=style.css.map */

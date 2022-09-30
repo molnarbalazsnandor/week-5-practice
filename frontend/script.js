@@ -85,6 +85,7 @@ const monthComponent = function (nth, name, days) {
         <section id="${nth}" class="${name}">
             <h2>${name}</h2>
             <div class = "days"> ${daysHtml} </div>
+            <div class = "selected-day"></div>
         </section>
   `;
 };
@@ -117,7 +118,23 @@ buttonElement.addEventListener("click", function () {
       )
     );
   }
-  initJanuaryEventListeners();
+  /*   initJanuaryEventListeners(); */
+
+  const dayElements = document.querySelectorAll(".day");
+
+  for (let i = 0; i < dayElements.length; i++) {
+    dayElements[i].addEventListener("click", function () {
+      dayElements[i].classList.toggle("clicked");
+    });
+  }
+
+  /*   dayElements.forEach(function (day) {
+    day.addEventListener("click", function (event) {
+      console.log(event);
+      day.classList.toggle("clicked");
+             event.target.classList.toggle("clicked");
+    });
+  }); */
 });
 /*   if (monthIndex < 12) {
     rootElement.insertAdjacentHTML(
@@ -151,14 +168,19 @@ const hideDays = function (days) {
   }
 };
 
+const showDayInfo = function (dayIndex) {
+  let selectedDay = document.querySelector(".January .selected-day");
+  selectedDay.textContent = `January ${dayIndex}`;
+};
 //js-ben css tulajdonságot úgy módosítunk, hogy felülírjuk az elem class-át
 // itt megmásítottuk a hidden class-ra amit meg a css-ben meghatározunk
 
-const initJanuaryEventListeners = function () {
+/* const initJanuaryEventListeners = function () {
   let days = document.querySelectorAll(".January .days .day");
   for (let day of days) {
     day.addEventListener("click", function () {
       hideDays(days);
+      showDayInfo(day.textContent);
     });
   }
-};
+}; */
