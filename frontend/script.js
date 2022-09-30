@@ -117,6 +117,7 @@ buttonElement.addEventListener("click", function () {
       )
     );
   }
+  initJanuaryEventListeners();
 });
 /*   if (monthIndex < 12) {
     rootElement.insertAdjacentHTML(
@@ -143,3 +144,21 @@ buttonElement.addEventListener("click", function () {
             meghívjuk benne a monthComponent 3 elemét, amelyek száma a year monthIndex-edik nth-ja, hónapja, napja
             monthIndex eggyel nő
             ha vége, else: kikapcsolja a gombot */
+
+const hideDays = function (days) {
+  for (let day of days) {
+    day.classList.add("hidden");
+  }
+};
+
+//js-ben css tulajdonságot úgy módosítunk, hogy felülírjuk az elem class-át
+// itt megmásítottuk a hidden class-ra amit meg a css-ben meghatározunk
+
+const initJanuaryEventListeners = function () {
+  let days = document.querySelectorAll(".January .days .day");
+  for (let day of days) {
+    day.addEventListener("click", function () {
+      hideDays(days);
+    });
+  }
+};

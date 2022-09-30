@@ -26,6 +26,7 @@
                 box-sizing: border-box;
                 padding: 5px 0;
                 margin-bottom: 10px;
+                display: block;
 
 
             }
@@ -56,3 +57,6 @@
     }
 }
 
+.hidden {
+    display: none;
+}
